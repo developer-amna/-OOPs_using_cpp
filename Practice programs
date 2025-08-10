@@ -309,5 +309,98 @@ int main ()               // main function from where execution starts
    return 0; //return 0 to operating system
 }
 
+\\ Program # 8
+
+#include<iostream>     // include the iostream library (a preprocessor directive)
+using namespace std;     // use the stanadard namespace
+	class book 
+	{
+	
+		int pages ;
+		int price ;
+		string title;
+		
+	public:
+	  
+	   void get()
+	   {
+	   	cout<<"Enter pages :";
+	   	cin>>pages;
+	   	cout<<"Enter price :";
+	   	cin>>price;
+	   	cout<<"Enter title :";
+	   	cin>>title;
+		   }
+		   
+		   
+		   void show()
+		   {
+		   	cout<<"Pages are :"<<pages<<endl;;
+		   	cout<<"Price is :"<<price<<endl;
+		   	cout<<"Title is :"<<title<<endl;
+			   }
+		};
+		
+		
+		
+int main ()               // main function from where execution starts
+{
+	book b1;
+	b1.get();
+	book b2=b1;
+	book b3=b1;
+	 
+	 cout<<"\nThe detail of book 1 is :"<<endl;
+	 b1.show();
+	  cout<<"\nThe detail of book 2 is :"<<endl;
+	  b2.show();
+	   cout<<"\nThe detail of book 3 is :"<<endl;
+	b3.show();
+   return 0; //return 0 to operating system
+}
+
+\\ Program # 9
+
+#include<iostream>     // include the iostream library (a preprocessor directive)
+using namespace std;     // use the stanadard namespace
+	class student 
+	{
+	
+		int marks;
+		char grade;
+		
+	public:
+		
+		student (int m, char g)
+		{
+			marks = m;
+			grade = g;
+		}
+	  
+	   void show()
+	   {
+	   	cout<<"Marks :"<<marks<<endl;
+	   	
+	   	cout<<"Grade is  :"<<grade<<endl;
+	   	
+		   }
+		   
+
+		};
+		
+		
+		
+int main ()               // main function from where execution starts
+{
+	student s1(23,'A'),s2(25,'A');
+	 
+	 cout<<"\nThe detail of student is :"<<endl;
+	 s1.show();
+	  cout<<"\nThe detail of student 2 is :"<<endl;
+	  s2.show();
+	
+   return 0; //return 0 to operating system
+}
+
 
 
