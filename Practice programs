@@ -402,5 +402,56 @@ int main ()               // main function from where execution starts
    return 0; //return 0 to operating system
 }
 
+\\ Program # 10
+
+#include<iostream>     // include the iostream library (a preprocessor directive)
+using namespace std;     // use the stanadard namespace
+class Person
+{
+	string name;
+	int age;
+	
+public:
+	void setValues(string n, int a)
+	{
+		name=n;
+		age=a;
+	}
+	
+	void copied(const Person &p)
+	{
+		name=p.name;
+		age=p.age;
+	}
+	
+    void display()
+	{
+		cout<<"\nName is :"<<name;
+		cout<<"\nAge is :"<<age;
+		}
+			
+};
+int main ()               // main function from where execution starts
+{
+	Person p1,p2;
+	p1.setValues("ali",23);
+	
+	cout<<"Before passing object:";
+	p1.display();
+	p2.display();
+	
+	p2.copied(p1);
+	
+	cout<<"After passing object :";
+	  p1.display();
+	  p2.display();
+	
+	
+	
+	
+	
+   return 0; //return 0 to operating system
+}
+
 
 
