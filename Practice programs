@@ -492,5 +492,29 @@ int main ()               // main function from where execution starts
    return 0; //return 0 to operating system
 }
 
+\\Program # 12
+
+#include<iostream>    // include the iostream library (a preprocessor directive)
+using namespace std;   // use the stanadard namespace
+class student
+{
+	public:
+		string name;
+		int age;
+		void display (){
+			cout<<"name="<<name<<endl;
+			cout<<"age="<<age<<endl;
+		}
+};
+int main(){         // main function from where execution starts
+	student s;
+	s.name="Amna";
+	s.age=21;
+	s.display();
+	return 0;          \\ return 0 to operating system
+}
+
+
+
 
 
