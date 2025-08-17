@@ -538,7 +538,58 @@ int main(){          // main function from where execution starts
 }
 
 
+\\ Program # 14
 
+#include<iostream>           // include the iostream library (a preprocessor directive)
+using namespace std;        // use the stanadard namespace
+class student
+{
+	private:
+		int rollno;
+		string name;
+		char grade;
+		float CGPA;
+	public:
+	    void setrollno(int r){        \\ function to set roll number
+	    	rollno=r;
+		}	
+		int getrollno(){              \\ function to get roll number
+			return rollno;
+		}
+		void setname(string n){
+			name=n;
+		}
+		string getname(){
+			return name;
+		}
+		void setgrade(char g){
+			grade=g;
+		}
+		char getgrade(){
+			return grade;
+		}
+		void setCGPA(float f){
+			CGPA=f;
+		}
+		float getCGPA(){
+			return CGPA;
+		}
+};
+int main(){                // main function from where execution starts
+      student s;
+      s.setrollno(2);
+      cout<<"Roll No="<<s.getrollno()<<endl;
+      s.setname("Amna");
+      cout<<"Name="<<s.getname()<<endl;
+      s.setgrade('A');
+      cout<<"Grade="<<s.getgrade()<<endl;
+      s.setCGPA(3.75);
+      cout<<"CGPA="<<s.getCGPA()<<endl;
+      return 0;                          // return 0 to operating system
+  }
+
+
+  
 
 
 
