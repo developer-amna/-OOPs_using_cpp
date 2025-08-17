@@ -607,6 +607,33 @@ int main(){            // main function from where execution starts
 }
 
 
+\\ Program # 16
+
+#include<iostream>          // include the iostream library (a preprocessor directive)
+using namespace std;           // use the stanadard namespace
+
+class student{
+	private:
+		string name;
+		int rollNo;
+	public:
+		student (string n,int r) {           // parameterized constructor
+			name = n;
+			rollNo = r;
+		}
+		
+		void show() {
+			cout<<"Name:"<<name<<endl<<"Roll No:"<<rollNo<<endl;
+		}
+};
+
+int main(){                    // main function from where execution starts
+    student s1("Amna",101);
+    s1.show();             // display student details
+    return 0;              // return 0 to operating system
+}
+
+
 
 
 
