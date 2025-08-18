@@ -665,7 +665,50 @@ int main()                // main function from where execution starts
 		  return 0;
 		  	  }
 
-			  
+\\ Program # 18
+
+#include<iostream>          // include the iostream library (a preprocessor directive)
+using namespace std;          // use the stanadard namespace
+class student{
+	private:
+		int rollno;
+		string name;
+	public:
+		student(){            // default constructor
+			rollno=0;
+			name="unknown";
+			cout<<"default constructor called"<<endl;
+		}
+		student (int r, string n){             // parameterized constructor
+		   rollno=r;
+		   name=n;
+		   cout<<"Parametrized constructor called"<<endl;
+	}
+	student (const student &s){                   // copy constructor
+	    // copy values from s to this object
+	    rollno=s.rollno;
+	    name=s.name;
+	    cout<<"copy constructor called"<<endl;
+	}
+	void show(){
+	cout<<"Roll No:"<<rollno<<endl<<"Name:"<<name<<endl;
+	}
+};
+int main()
+{
+	cout<<"\n---default constructor Example"<<endl;
+	student s1;
+	s1.show();
+	cout<<"\n---parametrized constructor Example"<<endl;
+	student s2(101,"Amna");
+	s2.show();
+	cout<<"\n---copy constructor Example"<<endl;
+	student s3=s2;
+	s3.show();
+	return 0;	
+}
+
+
 
 
 
