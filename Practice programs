@@ -708,6 +708,75 @@ int main()
 	return 0;	
 }
 
+\\ Program # 19
+
+#include<iostream>                 // include the iostream library (a preprocessor directive)
+using namespace std;                   // use the stanadard namespace
+class student {
+	private:
+		int rollNo;
+		string name;
+		float marks;
+	public:
+		student(){               // default constructor
+			rollNo=0;
+			name="unknown";
+			marks=0.0;
+			cout<<"Default Constructor called"<<endl;
+		}
+		student (int r,string n,float m){           // parameterized constructor
+			rollNo=r;
+			name=n;
+			marks=m;
+			cout<<"Parameterized Constructor called"<<endl;
+		}
+		student (const student &s){              // copy constructor
+		     rollNo=s.rollNo;
+			 name=s.name;
+			 marks=s.marks;
+			 cout<<"Copy constructor called"<<endl;	
+		}
+		void setRollNo(int r){              // function to set roll number
+			rollNo=r;
+		}
+		void setName(string n){
+			name=n;
+		}
+		void setMarks(float m){
+			marks=m;
+		}
+		int getRollNo(){                  // function to get roll number
+			return rollNo;
+		}
+		string getName(){
+			return name;
+		}
+		float getMarks(){
+			return marks;
+		}
+		void show(){
+			cout<<"Roll No:"<<rollNo<<endl<<"Name:"<<name<<endl<<"Marks:"<<marks<<endl;
+		}
+};
+int main() {                  // main function from where execution starts
+        cout<<"\n---Default Constructor---"<<endl;
+        student s1;
+        s1.setRollNo(11);
+        s1.setName("Amna");
+        s1.setMarks(89.5);
+        s1.show();                  
+        cout<<"\n---Parameterized Constructor---"<<endl;
+        student s2(22,"Usman",95.0);
+        s2.show();
+        cout<<"\n---copy constructor---"<<endl;
+        student s3=s2;
+        s3.show();
+        cout<<"\n---Getter Example---"<<endl;        
+        cout<<"Roll No:"<<s1.getRollNo()<<endl;              
+        cout<<"Name:"<<s1.getName()<<endl;
+        cout<<"Marks:"<<s1.getMarks()<<endl;
+        return 0;               \\ return 0 to operating system
+    }
 
 
 
