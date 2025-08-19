@@ -810,6 +810,43 @@ int main(){
 	return 0;
 	}
 
+\\ Program # 21
+
+#include<iostream>            // include the iostream library (a preprocessor directive)
+using namespace std;             // use the stanadard namespace
+class Gadget{
+	private:
+	    int id;
+	    static int count;
+    public: 		 // static member variable
+    	Gadget(){
+    		id=0;
+    		count++;
+		}
+		Gadget(int i){
+			id=i;
+			count++;
+		}
+		void showID(){
+			cout<<"ID="<<id<<endl;
+		}
+		static void showcountID(){           // static member function
+			cout<<"Count="<<count<<endl;
+		}
+	
+};
+  int Gadget::count=0;
+int main(){
+	Gadget g1;
+	Gadget g2(101);
+	Gadget g3;
+	g1.showID();
+	g2.showID();
+	g3.showID();
+	Gadget::showcountID();             // call static member function using class name
+	return 0;
+		}
+
 
 
 
