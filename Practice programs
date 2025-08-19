@@ -847,6 +847,99 @@ int main(){
 	return 0;
 		}
 
+\\ Program # 22
+
+#include <iostream>
+#include <memory>
+using namespace std;
+
+// ?? Version 1: Memory Leak (No Destructor)
+class BookLeak {
+private:
+    string* title;
+
+public:
+    BookLeak(string name) {
+        title = new string(name);
+        cout << "Book created: " << *title << endl;
+    }
+
+    void showTitle() {
+        cout << "Title: " << *title << endl;
+    }
+
+    // ? No destructor — memory leak
+};
+
+// ? Version 2: Fixed with Destructor
+class BookFixed {
+private:
+    string* title;
+
+public:
+    BookFixed(string name) {
+        title = new string(name);
+        cout << "Book created: " << *title << endl;
+    }
+
+    ~BookFixed() {
+        delete title;  // ? memory free
+        cout << "Book destroyed\n";
+    }
+
+    void showTitle() {
+        cout << "Title: " << *title << endl;
+    }
+};
+
+// ?? Version 3: Smart Pointer
+class BookSmart {
+private:
+    string title;
+
+public:
+    BookSmart(string name) : title(name) {
+        cout << "Book created: " << title << endl;
+    }
+
+    void showTitle() {
+        cout << "Title: " << title << endl;
+    }
+
+    ~BookSmart() {
+        cout << "Book destroyed\n";
+    }
+};
+
+// ?? Functions to run each version
+void memoryLeakVersion() {
+    cout << "\n--- Memory Leak Version ---\n";
+    BookLeak* b1 = new BookLeak("C++ Memory Leak");
+    b1->showTitle();
+    // ? delete b1 nahi kiya — memory leak
+}
+
+void destructorVersion() {
+    cout << "\n--- Destructor Version ---\n";
+    BookFixed* b2 = new BookFixed("C++ Destructor Fix");
+    b2->showTitle();
+    delete b2;  // ? destructor call hoga
+}
+
+void smartPointerVersion() {
+    cout << "\n--- Smart Pointer Version ---\n";
+    _ptr<BookSmart> b3(new BookSmart("C++ Smart Pointer"));
+    b3->showTitle();
+    // ? smart pointer khud memory free karega
+}
+
+int main() {
+    memoryLeakVersion();
+    destructorVersion();
+    smartPointerVersion();
+    return 0;
+}
+
 
 
 
