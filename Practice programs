@@ -778,6 +778,38 @@ int main() {                  // main function from where execution starts
         return 0;               \\ return 0 to operating system
     }
 
+	\\program # 20
+
+	#include<iostream>           // include the iostream library (a preprocessor directive)
+using namespace std;             // use the stanadard namespace
+class Gadget{
+	private:
+		const int price;          // constant member variable
+		 
+		 
+		 // const member variable must be initialized in the constructor
+		 // and cannot be changed later
+	public:
+		 
+		Gadget(int p):price(p){
+		}
+		~Gadget(){
+			
+		}
+		int getPrice()const{
+		return price;
+		}
+		void display() const{
+		cout<<"Price="<<price<<endl;
+		}
+};
+int main(){
+	Gadget g1(200);
+	g1.display();
+	cout<<"Price="<<g1.getPrice();
+	return 0;
+	}
+
 
 
 
