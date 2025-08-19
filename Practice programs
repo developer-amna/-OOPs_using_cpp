@@ -940,6 +940,34 @@ int main() {
     return 0;
 }
 
+\\ Program # 23
+
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    int* marks;
+
+public:
+    Student() {
+        marks = new int[5];  // 5 integers ke liye memory li gayi
+        cout << "Memory allocated for marks\n";
+    }
+
+    ~Student() {
+        // Agar delete[] marks nahi likha to memory leak ho jayega
+        delete[] marks;
+        cout << "Memory deallocated for marks\n";
+    }
+};
+
+int main() {
+    Student* s1 = new Student();  // object banaya
+    delete s1;  // object delete kiya, destructor call hoga
+    return 0;
+}
+
 
 
 
