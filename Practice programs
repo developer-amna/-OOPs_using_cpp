@@ -968,6 +968,87 @@ int main() {
     return 0;
 }
 
+\\ Program # 24
+
+
+#include<iostream>             // include the iostream library (a preprocessor directive)
+using namespace std;            // use the stanadard namespace
+
+class Teacher{
+	private:
+		int teacher_id;
+		string name;
+		int age;
+		float salary;
+	public:
+		teacher(){
+			teacher_id=0;
+			name="";
+			age=0;
+			salary=0.0;
+		}
+		Teacher(int id,string n,int a,float s){
+			teacher_id=id;
+			name=n;
+			age=a;
+			salary=s;
+		}
+		~Teacher(){             // destructor
+			// cleanup code if needed
+		cout<<"Destructor called for teacher  "<<name<<endl;
+		}
+		void setTeacherID(int id){
+			teacher_id=id;
+		}
+		void setName(string n){
+			name=n;
+		}
+		void setAge(int a){
+			age=a;
+		}
+		void setSalary(float s){
+			salary=s;
+		}
+		int getTeacherID(){
+			return teacher_id;
+		}
+		string getName(){
+			return name;
+		}
+		int getAge(){
+			return age;
+		}
+		float getSalary(){
+			return salary;
+		}
+	void display(){
+		cout<<"Teacher ID: "<<teacher_id<<endl;
+		cout<<"Name: "<<name<<endl;
+		cout<<"Age: "<<age<<endl;
+		cout<<"Salary: "<<salary<<endl;
+	}	
+	void compareSalary(Teacher t2){             // function to compare salaries of two teachers
+		if(salary>t2.salary){
+			cout<<"\n"<<name<<" has a higher salary "<<salary<<endl;
+		}
+		else if(salary<t2.salary){
+			cout<<"\n"<<t2.name<<" has a higher salary "<<t2.salary<<endl;
+		}
+		else{
+			cout<<"\nBoth teachers have equal salary"<<salary<<endl;
+		}
+	}
+};
+int main(){
+	Teacher t1(101," Amna",21,50000.0);             // create object of Teacher class
+	Teacher t2(102," Samreen",20,55000.0);      
+	t1.display();                         // display details of first teacher
+	t2.display();
+	t1.compareSalary(t2);
+	return 0;                      // return 0 to operating system
+}
+
+
 
 
 
