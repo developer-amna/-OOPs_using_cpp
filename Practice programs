@@ -1091,6 +1091,34 @@ int main()
 return 0;                // return 0 to operating system
 }
 
+\\ Program # 26
+
+#include<iostream>            // include the iostream library (a preprocessor directive)
+using namespace std;            // use the stanadard namespace
+class Student{
+	public:
+		string name;
+		Student(string n):name(n){}         // constructor with parameter
+		
+	
+};
+class Teacher{
+	private:
+		string name;
+	public:
+		Teacher(string n):name(n){}
+		void teach(Student s){
+			cout<<name<<" teaches "<<s.name<<".";         \\ display teaching message
+		}
+		
+};
+int main(){
+	Student s1("Amna");
+	Teacher t1("Sir Imran");
+	t1.teach(s1);          // call teach function to display message
+	return 0;
+}
+
 
 
 
