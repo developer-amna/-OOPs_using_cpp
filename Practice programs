@@ -1048,6 +1048,49 @@ int main(){
 	return 0;                      // return 0 to operating system
 }
 
+\\ Program # 25
+
+#include<iostream>               // include the iostream library (a preprocessor directive)
+#include<cstring>                   // for string manipulation
+using namespace std;
+
+class Book{
+	private:
+		char* name;
+	public:
+		Book(const char* n ){          // constructor with parameter
+			name=new char[strlen(n)+1];
+			strcpy(name, n);
+		}
+		Book(const Book &b){
+		name=new char[strlen(b.name)+1];           // copy constructor
+			strcpy(name,b.name);
+		}
+		void setName(const char* n){
+			
+			name=new char[strlen(n)+1];
+			strcpy(name, n);
+		}
+	 char* getName() const{
+			return name;
+		}
+		void display(){
+			cout<<"Name= "<<name<<endl;
+		}
+		~Book(){                         // destructor
+			delete[] name;
+		}
+};
+int main()
+{
+	Book b1(" Object Oriented Programming");
+	Book b2(b1);
+	b1.display();
+	b2.setName(" Data Structures");
+	b2.display();
+return 0;                // return 0 to operating system
+}
+
 
 
 
