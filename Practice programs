@@ -1158,6 +1158,29 @@ int main()
 	return 0;
 }
 
+\\ Program # 28
+
+#include<iostream>           // include the iostream library (a preprocessor directive)
+using namespace std;         // use the stanadard namespace
+class Box{
+	private:
+		int Length;
+	public:
+		Box (int l):Length(l){}
+		friend void display_Length(Box box);          // friend function declaration
+	
+};
+void display_Length(Box box)           
+{
+	cout<<box.Length;
+}
+int main(){
+	Box b1(5);
+	display_Length (b1);
+	return 0;
+}
+
+
 
 
 
