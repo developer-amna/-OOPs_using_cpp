@@ -1207,6 +1207,34 @@ int main(){
 	return 0;
 	}
 
+	\\program # 30
+
+	#include<iostream>        // include the iostream library (a preprocessor directive)
+using namespace std;        // use the stanadard namespace
+class Complex{
+	private:
+		int real;
+		int img;
+	public:
+		Complex(int r,int i):real(r),img(i){}        // constructor with parameters
+		void display(){
+			cout<<real<<"+"<<img<<"i";
+		}
+		Complex&operator+(const Complex &obj)        // operator overloading function
+		{
+			Complex temp;             // create temporary object to store result
+			temp.real=real+obj.real;
+			temp.img=img+obj.img;
+			return temp;
+		}
+};
+int main(){
+	Complex c1(2,3),c2(4,5);
+	Complex c3=c2+c1;
+	c3.display();
+	return 0;
+}
+
 
 
 
