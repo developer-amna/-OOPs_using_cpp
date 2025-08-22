@@ -1119,6 +1119,45 @@ int main(){
 	return 0;
 }
 
+\\program # 27
+
+#include<iostream>           // include the iostream library (a preprocessor directive)
+using namespace std;           // use the stanadard namespace
+class Engine{
+	public:
+		Engine(){
+		cout<<"I am constructor of Engine."<<endl;
+	}
+	void start(){
+		cout<<"Engine is started."<<endl;
+}
+~Engine(){
+	cout<<"I am destructor of Engine."<<endl;
+}
+};
+class Car{
+	private:
+		Engine engine;
+	public:
+		car(){
+			cout<<"I am constructor of car"<<endl;
+		}
+		void drive(){
+			engine.start();
+			cout<<"Car is moving."<<endl;
+					}
+					~Car(){
+						cout<<"I am destructor of car."<<endl;
+					}
+};
+int main()
+{
+	Car c;                // create object of Car class
+	c.drive();         // call drive function to start engine and move car
+	
+	return 0;
+}
+
 
 
 
