@@ -1220,7 +1220,7 @@ class Complex{
 		void display(){
 			cout<<real<<"+"<<img<<"i";
 		}
-		Complex&operator+(const Complex &obj)        // operator overloading function
+		Complex operator+(const Complex &obj)        // operator overloading function
 		{
 			Complex temp;             // create temporary object to store result
 			temp.real=real+obj.real;
