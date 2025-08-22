@@ -1180,6 +1180,33 @@ int main(){
 	return 0;
 }
 
+\\ Program # 29
+
+#include<iostream>        // include the iostream library (a preprocessor directive)
+using namespace std;        // use the stanadard namespace
+class Student{
+	public:
+		string name;
+		Student(string n):name(n){}		
+};
+class Department{
+	private:
+		Student* student;        // pointer to Student object
+	public:
+		Department(Student* s1){           // constructor with Student pointer parameter
+			student=s1;
+		}
+		void display(){
+			cout<<student->name<<" is in department."<<endl;
+		}
+};
+int main(){
+	Student s1("Amna");
+	Department cs(&s1);        // create Department object with Student pointer
+	cs.display();
+	return 0;
+	}
+
 
 
 
