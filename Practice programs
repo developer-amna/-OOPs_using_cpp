@@ -1308,6 +1308,52 @@ int main() {
     return 0;
 }
 
+\\ Program # 33
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Student {
+private:
+    char* name;
+
+public:
+    // Constructor
+    Student(const char* n) {
+        name = new char[strlen(n) + 1];  // Allocate memory
+        strcpy(name, n);                 // Copy string
+    }
+
+    // Copy Constructor (Deep Copy)
+    Student(const Student& other) {
+        name = new char[strlen(other.name) + 1];
+        strcpy(name, other.name);
+        cout << "Deep copy constructor called!" << endl;
+    }
+
+    // Display method
+    void display() {
+        cout << "Name: " << name << endl;
+    }
+
+    // Destructor
+    ~Student() {
+        delete[] name;
+        cout << "Destructor called for " << name << endl;
+    }
+};
+
+int main() {
+    Student s1("Ali");
+    Student s2 = s1;  // Deep copy constructor is called
+
+    s1.display();
+    s2.display();
+
+    return 0;
+}
+
 
 
 
