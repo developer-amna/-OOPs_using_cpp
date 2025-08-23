@@ -1354,6 +1354,46 @@ int main() {
     return 0;
 }
 
+\\ Program # 34
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Shallow {
+public:
+    char* data;
+
+    Shallow(const char* d) {
+        data = new char[strlen(d) + 1];
+        strcpy(data, d);
+    }
+
+    // Default copy constructor (shallow copy)
+    ~Shallow() {
+        delete[] data;
+        cout << "Destructor called\n";
+    }
+
+    void show() {
+        cout << "Data: " << data << endl;
+    }
+};
+
+int main() {
+    Shallow obj1("Hello");
+    Shallow obj2 = obj1;  // Shallow copy
+
+    obj1.show();
+    obj2.show();
+
+    return 0;
+}
+\\Problem: Jab destructor chalega, dono objects same memory ko delete karne ki koshish karenge — double delete error ho sakta hai.
+
+
+
+
 
 
 
