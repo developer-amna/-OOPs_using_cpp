@@ -1269,6 +1269,45 @@ int main() {
     return 0;
 }
 
+\\ Program # 32
+
+#include <iostream>
+using namespace std;
+
+class Car {
+private:
+    string brand;
+    int year;
+
+public:
+    // Default constructor
+    Car(string b, int y) {
+        brand = b;
+        year = y;
+    }
+
+    // Copy constructor
+    Car(const Car &other) {
+        brand = other.brand;
+        year = other.year;
+        cout << "Copy constructor called!" << endl;
+    }
+
+    void display() {
+        cout << "Brand: " << brand << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car car1("Toyota", 2020);     // Original object
+    Car car2 = car1;              // Copy constructor is called here
+
+    car1.display();
+    car2.display();
+
+    return 0;
+}
+
 
 
 
