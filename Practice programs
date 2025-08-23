@@ -1392,7 +1392,49 @@ int main() {
 \\Problem: Jab destructor chalega, dono objects same memory ko delete karne ki koshish karenge — double delete error ho sakta hai.
 
 
+\\ Program # 35
 
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Deep {
+public:
+    char* data;
+
+    Deep(const char* d) {
+        data = new char[strlen(d) + 1];
+        strcpy(data, d);
+    }
+
+    // Deep copy constructor
+    Deep(const Deep& other) {
+        data = new char[strlen(other.data) + 1];
+        strcpy(data, other.data);
+        cout << "Deep copy constructor called\n";
+    }
+
+    ~Deep() {
+        delete[] data;
+        cout << "Destructor called\n";
+    }
+
+    void show() {
+        cout << "Data: " << data << endl;
+    }
+};
+
+int main() {
+    Deep obj1("World");
+    Deep obj2 = obj1;  // Deep copy
+
+    obj1.show();
+    obj2.show();
+
+    return 0;
+}
+
+\\ Problem solved: Ab dono objects ke paas apni alag memory hai, to destructor safely chalega bina kisi error ke.
 
 
 
