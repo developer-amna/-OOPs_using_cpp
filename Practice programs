@@ -1437,6 +1437,46 @@ int main() {
 \\ Problem solved: Ab dono objects ke paas apni alag memory hai, to destructor safely chalega bina kisi error ke.
 
 
+\\Program # 36
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    int id;
+    string name;
+    float salary;
+
+public:
+    // Constructor
+    Employee(int empId, string empName, float empSalary) {
+        id = empId;
+        name = empName;
+        salary = empSalary;
+    }
+
+    // Display function
+    void showDetails() {
+        cout << "ID: " << id << ", Name: " << name << ", Salary: $" << salary << endl;
+    }
+};
+
+int main() {
+    // Array of Employee objects
+    Employee empList[3] = {
+        Employee(101, "Ali", 50000),
+        Employee(102, "Sara", 60000),
+        Employee(103, "Zain", 55000)
+    };
+
+    // Displaying all employee details
+    for (int i = 0; i < 3; i++) {
+        empList[i].showDetails();
+    }
+
+    return 0;
+}
 
 
 
