@@ -1478,6 +1478,58 @@ int main() {
     return 0;
 }
 
+\\ Program # 37
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    int id;
+    string name;
+    float salary;
+
+public:
+    // Constructor 1: No parameters
+    Employee() {
+        id = 0;
+        name = "Unknown";
+        salary = 0.0;
+    }
+
+    // Constructor 2: Only ID and Name
+    Employee(int empId, string empName) {
+        id = empId;
+        name = empName;
+        salary = 0.0;
+    }
+
+    // Constructor 3: All parameters
+    Employee(int empId, string empName, float empSalary) {
+        id = empId;
+        name = empName;
+        salary = empSalary;
+    }
+
+    void showDetails() {
+        cout << "ID: " << id << ", Name: " << name << ", Salary: $" << salary << endl;
+    }
+};
+
+int main() {
+    // Using different constructors
+    Employee e1;                                 // Default constructor
+    Employee e2(101, "Ali");                     // Constructor with ID and Name
+    Employee e3(102, "Sara", 65000.5);           // Constructor with all parameters
+
+    // Displaying details
+    e1.showDetails();
+    e2.showDetails();
+    e3.showDetails();
+
+    return 0;
+}
+
 
 
 
