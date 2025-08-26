@@ -1565,6 +1565,46 @@ int main(){
 	c1.display();       //output : 7
 }
 
+// Program # 39
+
+#include<iostream>
+using namespace std;
+class Number{
+	    int* value;
+	public:
+		Number(int v=0){
+			value= new int(v);
+		}
+		
+		    // Copy Constructor
+    Number(const Number& obj) {
+        value = new int(*(obj.value));
+    }
+
+		//Overload = opeartor
+		Number& operator=(const Number& obj){
+			if (this !=&obj){ //avoid self-assignment
+			*value = *(obj . value);
+			}
+			return *this;
+		}
+		
+		 // Destructor
+    ~Number() {
+        delete value;
+    }
+
+		void display(){
+			cout<<*value<<endl;
+		}
+	    
+};
+int main(){
+	Number n1(10), n2(20);
+	n2=n1;   //calls operator=
+	n2.display();    //output: 10
+}
+
 
 
 
