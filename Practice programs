@@ -1530,6 +1530,41 @@ int main() {
     return 0;
 }
 
+//Program # 38
+
+#include<iostream>
+using namespace std;
+class Counter{
+	private:
+		int count;
+	public:
+		Counter(int c=0) : count(c){}
+		
+		//prefix ++
+		Counter operator++(){
+			++count;
+			return *this;
+		}
+		
+		//postfix ++
+		Counter operator++(int){
+			Counter temp=*this;
+			count++;
+			return temp;
+		}
+		void display(){
+			cout<<count<<endl;
+		}
+};
+int main(){
+	Counter c1(5);
+	++c1;         //calls prefix
+	c1.display();    //output : 6
+	
+	c1++;        //calls pistfix
+	c1.display();       //output : 7
+}
+
 
 
 
