@@ -1800,6 +1800,39 @@ int main(){
 	return 0;
 }
 
+\\ Program # 45
+
+#include<iostream>
+using namespace std;
+class LivingThing{
+	public:
+		void breathe(){
+			cout<<"Breathing..."<<endl;
+		}
+};
+
+class Animal : public LivingThing{
+	public: 
+	  void eat(){
+		cout<<"Animal eats food."<<endl;
+	}
+};
+
+class Dog : public Animal{
+	public:
+	  void bark(){
+		cout<<"Dog barks."<<endl;
+	}
+};
+
+int main(){
+	Dog d1;
+	d1.breathe();
+	d1.eat();
+	d1.bark();
+	return 0;
+}
+
 
 
 
