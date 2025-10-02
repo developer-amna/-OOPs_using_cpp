@@ -1674,6 +1674,48 @@ int main(){
 	return 0;
 }
 
+\\ Program # 42
+
+#include<iostream>
+using namespace std;
+class Person{
+	public:
+    	int age;
+	    string name;
+	Person(int a,string n){
+		age=a;
+		name=n;
+	
+	~Person(){
+		cout<<"Parent distructor"<<endl;
+	}
+	
+};
+class Student : public Person {
+
+	public:
+		int rollno;
+		Student(int age,string name,int rollno):Person ( age,name){
+			this->rollno=rollno;
+			
+		}
+
+
+	void output(){
+		cout<<"Name:"<<name<<endl;
+		cout<<"Age:"<<age<<endl;
+		cout<<"Roll No:"<<rollno<<endl;
+	}
+	~Student(){
+		cout<<"Child destructor"<<endl;
+	}
+};
+int main(){
+    Student s1(21,"Amne",2);
+    
+    s1.output();
+}
+
 
 
 
