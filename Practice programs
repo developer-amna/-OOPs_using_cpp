@@ -1833,6 +1833,41 @@ int main(){
 	return 0;
 }
 
+\\ Program # 46
+
+#include<iostream>
+using namespace std;
+class Engine{
+	public:
+		void start(){
+			cout<<"Engine is started."<<endl;
+		}
+};
+
+class Wheels{
+	public:
+		void roll(){
+			cout<<"Wheels rolling."<<endl;
+		}
+};
+
+class Car : public Engine , public Wheels{
+	public:
+		void drive(){
+			cout<<"Car is driving."<<endl;
+		}
+};
+
+int main(){
+	Car c1;
+	c1.start();
+	c1.roll();
+	c1.drive();
+	return 0;
+	}
+
+	
+
 
 
 
