@@ -1646,6 +1646,34 @@ int main ()               // main function from where execution starts
    return 0; //return 0 to operating system
 }
 
+\\ Program # 41
+
+#include<iostream>
+using namespace std;
+class Animal{
+	public:
+	virtual	void sound()=0;
+};
+class Cat : public Animal{          
+	public:
+		void sound(){
+			cout<<"Cat's Sound"<<endl;
+		}
+};
+class Dog : public Animal{
+	public:
+		void sound(){
+			cout<<"Dog's Sound"<<endl;
+		}
+};
+int main(){
+	Animal *ptr=new Cat();
+	ptr->sound();
+	
+	delete ptr;
+	return 0;
+}
+
 
 
 
