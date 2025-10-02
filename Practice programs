@@ -1762,6 +1762,44 @@ int main() {
    return 0;
 }
 
+\\ program # 44
+
+#include<iostream>
+using namespace std;
+class Animal{
+   public:
+virtual	void show(){
+		cout<<"Animal";
+		
+	}
+	Animal(){
+		cout<<"Animal constructor"<<endl;
+	}
+  virtual ~Animal(){
+		cout<<"Animal destructor"<<endl;
+	}
+};
+class Cat : public Animal{
+	public:
+	void show(){
+		cout<<"Cat";
+		
+	}
+	Cat(){
+		cout<<"Cat constructor"<<endl;
+	}
+	~Cat(){
+		cout<<"Cat destructor"<<endl;
+	}
+};
+int main(){
+	Animal *ptr = new Cat;
+	Cat c;
+	ptr = &c;
+	delete ptr;
+	return 0;
+}
+
 
 
 
