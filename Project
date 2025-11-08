@@ -1,0 +1,206 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// Base class: Person
+class Person {
+protected:
+    string name;
+    int age;
+    int id;
+
+public:
+    Person(string name, int age, int id) : name(name), age(age), id(id) {}
+    virtual void displayInfo() const {
+        cout << "Name: " << name << "\nAge: " << age << "\nID: " << id << endl;
+    }
+    string getName() const { return name; }
+};
+
+// Student class
+class Student : public Person {
+private:
+    int rollNumber;
+    vector<string> courses;
+
+public:
+    Student(string name, int age, int id, int rollNumber)
+        : Person(name, age, id), rollNumber(rollNumber) {}
+
+    void enrollCourse(const string& course) {
+        courses.push_back(course);
+    }
+
+    void displayInfo() const override {
+        Person::displayInfo();
+        cout << "Roll Number: " << rollNumber << "\nCourses Enrolled: ";
+        for (const auto& course : courses)
+            cout << course << " ";
+        cout << endl;
+    }
+};
+
+// Teacher class
+class Teacher : public Person {
+private:
+    string subject;
+    vector<string> assignedCourses;
+
+public:
+    Teacher(string name, int age, int id, string subject)
+        : Person(name, age, id), subject(subject) {}
+
+    void assignCourse(const string& course) {
+        assignedCourses.push_back(course);
+    }
+
+    void displayInfo() const override {
+        Person::displayInfo();
+        cout << "Subject: " << subject << "\nAssigned Courses: ";
+        for (const auto& course : assignedCourses)
+            cout << course << " ";
+        cout << endl;
+    }
+};
+
+// Course class
+class Course {
+private:
+    string courseName;
+    string courseCode;
+    string teacherName;
+    vector<string> enrolledStudents;
+
+public:
+    Course(string name, string code, string teacher)
+        : courseName(name), courseCode(code), teacherName(teacher) {}
+
+    void enrollStudent(const string& studentName) {
+        enrolledStudents.push_back(studentName);
+    }
+
+    void displayCourseInfo() const {
+        cout << "Course Name: " << courseName
+             << "\nCourse Code: " << courseCode
+             << "\nTeacher: " << teacherName
+             << "\nEnrolled Students: ";
+        for (const auto& student : enrolledStudents)
+            cout << student << " ";
+        cout << endl;
+    }
+
+    string getName() const { return courseName; }
+};
+
+// Main program
+int main() {
+    vector<Student> students;
+    vector<Teacher> teachers;
+    vector<Course> courses;
+
+    int choice;
+    do {
+        cout << "\n--- School Management Menu ---\n";
+        cout << "1. Add Student\n";
+        cout << "2. Add Teacher\n";
+        cout << "3. Create Course\n";
+        cout << "4. Enroll Student in Course\n";
+        cout << "5. Display All Students\n";
+        cout << "6. Display All Teachers\n";
+        cout << "7. Display All Courses\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            string name;
+            int age, id, roll;
+            cout << "Enter student name: ";
+            cin.ignore(); getline(cin, name);
+            cout << "Enter age: "; cin >> age;
+            cout << "Enter ID: "; cin >> id;
+            cout << "Enter roll number: "; cin >> roll;
+            students.emplace_back(name, age, id, roll);
+            cout << "Student added successfully.\n";
+        }
+        else if (choice == 2) {
+            string name, subject;
+            int age, id;
+            cout << "Enter teacher name: ";
+            cin.ignore(); getline(cin, name);
+            cout << "Enter age: "; cin >> age;
+            cout << "Enter ID: "; cin >> id;
+            cout << "Enter subject: ";
+            cin.ignore(); getline(cin, subject);
+            teachers.emplace_back(name, age, id, subject);
+            cout << "Teacher added successfully.\n";
+        }
+        else if (choice == 3) {
+            string name, code, teacher;
+            cout << "Enter course name: ";
+            cin.ignore(); getline(cin, name);
+            cout << "Enter course code: "; getline(cin, code);
+            cout << "Enter teacher name: "; getline(cin, teacher);
+            courses.emplace_back(name, code, teacher);
+            for (auto& t : teachers)
+                if (t.getName() == teacher)
+                    t.assignCourse(name);
+            cout << "Course created successfully.\n";
+        }
+        else if (choice == 4) {
+            string studentName, courseName;
+            cout << "Enter student name: ";
+            cin.ignore(); getline(cin, studentName);
+            cout << "Enter course name: "; getline(cin, courseName);
+            for (auto& s : students)
+                if (s.getName() == studentName)
+                    s.enrollCourse(courseName);
+            for (auto& c : courses)
+                if (c.getName() == courseName)
+                    c.enrollStudent(studentName);
+            cout << "Student enrolled successfully.\n";
+        }
+        else if (choice == 5) {
+            cout << "\n--- Students ---\n";
+            for (const auto& s : students)
+                s.displayInfo();
+        }
+        else if (choice == 6) {
+            cout << "\n--- Teachers ---\n";
+            for (const auto& t : teachers)
+                t.displayInfo();
+        }
+        else if (choice == 7) {
+            cout << "\n--- Courses ---\n";
+            for (const auto& c : courses)
+                c.displayCourseInfo();
+        }
+        else if (choice == 0) {
+            cout << "Exiting program...\n";
+        }
+        else {
+            cout << "Invalid choice. Try again.\n";
+        }
+    } while (choice != 0);
+
+    return 0;
+}
+
+\\ output
+
+"Name: Amna
+Age: 21
+ID: 23
+Roll Number: 23
+--- School Management Menu ---
+1. Add Student
+2. Add Teacher
+3. Create Course
+4. Enroll Student in Course
+5. Display All Students
+6. Display All Teachers
+7. Display All Courses
+0. Exit
+Enter your choice: 0
+    Exiting program...
