@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+// Abstract Base Class
+class Shape {
+public:
+    // Pure virtual function (Abstract method)
+    virtual void area() = 0;  
+    virtual void perimeter() = 0;
+
+    // Virtual destructor
+    virtual ~Shape() {}
+};
+
+// Derived Class: Rectangle
+class Rectangle : public Shape {
+private:
+    double length, width;
+
+public:
+    Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+
+    void area() override {
+        cout << "Rectangle Area: " << length * width << endl;
+    }
+
+    void perimeter() override {
+        cout << "Rectangle Perimeter: " << 2 * (length + width) << endl;
+    }
+};
+
+// Derived Class: Circle
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+    Circle(double r) {
+        radius = r;
+    }
+
+    void area() override {
+        cout << "Circle Area: " << 3.1416 * radius * radius << endl;
+    }
+
+    void perimeter() override {
+        cout << "Circle Perimeter: " << 2 * 3.1416 * radius << endl;
+    }
+};
+
+// Polymorphism in action
+int main() {
+    Shape* s1 = new Rectangle(10, 5);
+    Shape* s2 = new Circle(7);
+
+    s1->area();
+    s1->perimeter();
+
+    s2->area();
+    s2->perimeter();
+
+    // Clean up
+    delete s1;
+    delete s2;
+
+    return 0;
+}
